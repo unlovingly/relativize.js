@@ -51,13 +51,9 @@
   };
 
   function _pluralize(target) {
-    var targets;
-
     if (!locale[options.locale].pluralable) return target;
 
-    targets = target.split(' ');
-
-    return targets[0] + ' ' + ((parseInt(targets[0]) > 1) ? targets[1] + 's' : targets[1]);
+    return parseInt(target) > 1 ? target + 's' : target;
   }
 
   function relativize(params) {
