@@ -15,9 +15,11 @@
   identifier = {
     en: {
       past: ' ago',
+      present: 'just now',
     },
     ja: {
       past: '前',
+      present: 'たった今',
     },
   },
   locale = {
@@ -69,8 +71,9 @@
       delta = Math.floor(delta / conversions[i]);
 
       if (delta < conversions[i + 1]) {
-        return _pluralize(delta + ' ' + units[options.locale][i], options.locale)
-            + identifier[options.locale]['past'];
+        return i < 1 && 15 > Math.abs(delta)
+            ? identifier[options.locale]['present']
+            : _pluralize(delta + ' ' + units[options.locale][i], options.locale) + identifier[options.locale]['past'];
       }
     }
   }
