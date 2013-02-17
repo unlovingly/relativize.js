@@ -6,7 +6,7 @@ describe('Date.prototype', function () {
 
   describe('relativize', function () {
     it('should return string which date or time (singular)', function () {
-      new Date(new Date('01 Jan 2011 GMT'))
+      new Date(new Date('01 Jan 2012 GMT'))
         .relativize()
         .should
         .equal('1 year ago');
