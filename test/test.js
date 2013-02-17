@@ -4,22 +4,36 @@ var relativize = require('../relativize.js');
 describe('Date.prototype', function () {
   var epoch = 'Thu, 01 Jan 1970 00:00:00 GMT';
 
-  describe('relativize', function () {
-    it('should return string which date or time (singular)', function () {
+  describe('relativize method', function () {
+    it('should return string which express the current time', function () {
+      new Date(new Date() - 12000)
+        .relativize()
+        .should
+        .equal('now');
+    });
+
+    it('should return string which is date or time (singular)', function () {
       new Date(new Date('01 Jan 2012 GMT'))
         .relativize()
         .should
         .equal('1 year ago');
     });
 
-    it('should return string which date or time (plural)', function () {
+    it('should return string which is time', function () {
+      new Date(new Date() - 61000)
+        .relativize()
+        .should
+        .equal('1 minute ago');
+    });
+
+    it('should return string which is date or time (plural)', function () {
       new Date(epoch)
         .relativize()
         .should
         .equal('43 years ago');
     });
 
-    it('日付または時刻を表す文字列を返す', function () {
+    it('日付または時刻を表す文字列を返すべき', function () {
       new Date(epoch)
         .relativize({ locale: 'ja' })
         .should
