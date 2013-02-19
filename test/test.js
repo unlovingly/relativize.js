@@ -9,7 +9,7 @@ describe('Date.prototype', function () {
       new Date(new Date() - 12000)
         .relativize()
         .should
-        .equal('now');
+        .equal('just now');
     });
 
     it('should return string which is date or time (singular)', function () {
