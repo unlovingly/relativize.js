@@ -8,7 +8,8 @@
     60,
     60,
     24,
-    30.44,
+    7,
+    4.348,
     12,
     100,
   ];
@@ -39,6 +40,7 @@
       'minute',
       'hour',
       'day',
+      'week',
       'month',
       'year',
     ],
@@ -47,6 +49,7 @@
       '分',
       '時間',
       '日',
+      '週間',
       'か月',
       '年',
     ],
@@ -71,7 +74,7 @@
       delta = Math.floor(delta / conversions[i]);
 
       if (delta < conversions[i + 1]) {
-        return i < 1 && 15 > Math.abs(delta)
+        return ((i < 1) && (15 > Math.abs(delta)))
             ? identifier[options.locale]['present']
             : _pluralize(delta + ' ' + units[options.locale][i], options.locale) + identifier[options.locale]['past'];
       }

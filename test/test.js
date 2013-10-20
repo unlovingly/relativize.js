@@ -20,10 +20,17 @@ describe('Date.prototype', function () {
     });
 
     it('should return string which is time', function () {
-      new Date(new Date() - 61000)
+      new Date(new Date() - 120000)
         .relativize()
         .should
-        .equal('1 minute ago');
+        .equal('2 minutes ago');
+    });
+
+    it('should return string which is date or time (plural)', function () {
+      new Date(new Date() - 1210000000)
+        .relativize()
+        .should
+        .equal('2 weeks ago');
     });
 
     it('should return string which is date or time (plural)', function () {
